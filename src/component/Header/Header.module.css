@@ -1,0 +1,40 @@
+.headerContainer{
+    margin-bottom: 60px;
+}
+.header{
+    margin: 0 auto;
+    color: tomato;
+    font-size: 30px;
+    text-align: center;
+}
+.header:hover{
+    color: tomato;
+    text-decoration: none;
+}
+.about{
+    color: tomato;
+    padding-right: 20px;
+
+}
+.about:hover{
+   color:tomato;
+   text-decoration: none;
+}
+.colorFavicon{
+color:tomato;
+}
+/* .c:hover{
+    column-gap: normal;
+    outline: none;
+} */
+button{
+   
+    background-color: transparent;
+    padding-right: 20px;
+    color: white;
+    outline: none;
+    border: none;
+}
+button:focus{
+    outline: 0 !important;
+}

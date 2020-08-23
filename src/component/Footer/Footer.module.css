@@ -1,0 +1,9 @@
+.footer{
+    height:50px;
+    width: 100%;
+    background-color: tomato;
+    color:white;
+    bottom: 0;
+    padding: 30px;
+    margin-top: 20px;
+}

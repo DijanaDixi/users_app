@@ -1,0 +1,27 @@
+.input {
+    border: none;
+    border-bottom: 2px solid gainsboro;
+    width: 100%;
+    -moz-appearance: none;
+    /* older firefox */
+    -webkit-appearance: none;
+    /* safari, chrome, edge and ie mobile */
+    appearance: none;
+}
+
+.input:focus {
+    border-radius: 0%;
+    outline: none;
+}
+
+.searchFavicon {
+    position: absolute;
+    color: tomato;
+    margin-left: -20px;
+    margin-top: 5px;
+}
+
+::placeholder {
+    color: tomato;
+    
+}
