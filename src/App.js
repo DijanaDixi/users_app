@@ -11,15 +11,16 @@ function App() {
   // all users
   const [users, setUsers] = useState([]);
   // grid or list
-  const [showUsers, setUsersView] = useState(true);
-   // eslint-disable-next-line
+  const [showUsers, setUsersView] = useState(
+    localStorage.getItem("view") === true
+  );
+  // eslint-disable-next-line
   const [count, setCount] = useState(20);
   // loader
   const [loader, isLoading] = useState(true);
   // count female and male
   const [female, setFemale] = useState(0);
   const [male, setMale] = useState(0);
-
 
   useEffect(() => {
     fetchUsers();
@@ -45,6 +46,7 @@ function App() {
   const showView = (event) => {
     event.preventDefault();
     setUsersView(!showUsers);
+    localStorage.setItem("view", showUsers);
   };
 
   // Feamle and male
@@ -58,7 +60,6 @@ function App() {
     setMale(male);
   };
 
-
   // Search
   const searchNewUsers = (value) => {
     var usersStorige = JSON.parse(localStorage.users);
@@ -71,17 +72,19 @@ function App() {
     setUsers(filterList);
     countFemaleAndMale(filterList);
   };
- 
 
-  const buttonRefresh=()=>{
+  const buttonRefresh = () => {
     localStorage.removeItem("users");
-    fetchUsers()
-
-  }
+    fetchUsers();
+  };
   return (
     <>
       <BrowserRouter>
-        <Header showView={showView} showUsers={showUsers} buttonRefresh={buttonRefresh} />
+        <Header
+          showView={showView}
+          showUsers={showUsers}
+          buttonRefresh={buttonRefresh}
+        />
 
         <Route path="/" exact>
           <div className="container">
