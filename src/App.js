@@ -11,9 +11,7 @@ function App() {
   // all users
   const [users, setUsers] = useState([]);
   // grid or list
-  const [showUsers, setUsersView] = useState(
-    localStorage.getItem("view") === true
-  );
+  const [showUsers, setUsersView] = useState(true)
   // eslint-disable-next-line
   const [count, setCount] = useState(20);
   // loader
@@ -112,24 +110,3 @@ function App() {
   );
 }
 export default App;
-
-// storeView(view) {
-//   localStorage.setItem('view', view)
-// }
-
-// storeUsers(users) {
-//   localStorage.setItem('users', users)
-// }
-
-// storeFetchDate(date) {
-//   localStorage.setItem('date', date)
-// }
-
-// getStoredData(key) {
-//   localStorage.getItem(key)
-// }
-
-// removeStoredItem(key) {
-//   localStorage.removeItem(key)
-// }
-// }

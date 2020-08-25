@@ -13,13 +13,13 @@ function User({ user }) {
   };
 
   return (
-    <div className="col-10 offset-1">
+    <div className="col-xs-12 col-sm-12 col-md-10 offset-1">
       <div className={check()}>
         <div className="row">
-          <div className="col-2">
+          <div className="col-xs-4 col-4">
             <img className={styles.small} src={user.picture.medium} alt="img" />
           </div>
-          <div className="col-5">
+          <div className="col-xs-8 col-8">
             <div className={styles.about}>
               <p>
                 {user.name.first} {user.name.last}
