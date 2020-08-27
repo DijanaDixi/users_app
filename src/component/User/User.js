@@ -16,10 +16,10 @@ function User({ user }) {
     <div className="col-xs-12 col-sm-12 col-md-10 offset-1">
       <div className={check()}>
         <div className="row">
-          <div className="col-xs-4 col-4">
+          <div className="col-xs-12 col-sm-12 col-md-4 ">
             <img className={styles.small} src={user.picture.medium} alt="img" />
           </div>
-          <div className="col-xs-8 col-8">
+          <div className="col-xs-12 col-sm-12 col-md-8">
             <div className={styles.about}>
               <p>
                 {user.name.first} {user.name.last}
