@@ -5,7 +5,7 @@ import { faRedoAlt, faListUl, faTh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-function Header({ showView, showUsers, buttonRefresh }) {
+function Header({ showView, listUsers, buttonRefresh }) {
 
   const [hideButtons, setDisplayButtons] = useState(true);
 
@@ -20,7 +20,7 @@ function Header({ showView, showUsers, buttonRefresh }) {
         </Link>{" "}
         {hideButtons ? (
           <div>
-            {showUsers ? (
+            {listUsers ? (
               <button onClick={showView} type="button">
                 <FontAwesomeIcon
                   icon={faListUl}

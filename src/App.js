@@ -11,11 +11,10 @@ function App() {
   // all users
   const [users, setUsers] = useState([]);
   // grid or list
-  const [showUsers, setUsersView] = useState(true)
+  const [listUsers, setUsersView] = useState("list");
   // eslint-disable-next-line
-  const [count, setCount] = useState(20);
   // loader
-  const [loader, isLoading] = useState(true);
+  const [loader, isLoading] = useState(false);
   // count female and male
   const [female, setFemale] = useState(0);
   const [male, setMale] = useState(0);
@@ -23,28 +22,46 @@ function App() {
   useEffect(() => {
     fetchUsers();
     // eslint-disable-next-line
-  }, [count]);
+  }, []);
+
+  useEffect(() => {
+    // console.log(localStorage.getItem("view") !== null);
+    if (localStorage.getItem("view")) {
+      setUsersView(localStorage.getItem("view"));
+    } else {
+      setUsersView("list");
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const fetchUsers = () => {
-    fetch(`https://randomuser.me/api/?results=${count}`)
-      .then((res) => res.json())
-      .then((resp) => {
-        setTimeout(() => isLoading(false), 2000);
-
-        if (localStorage.getItem("users") === null) {
+    isLoading(true);
+    if (localStorage.getItem("users") !== null) {
+      setUsers(JSON.parse(localStorage.getItem("users")));
+      countFemaleAndMale(JSON.parse(localStorage.getItem("users")));
+      isLoading(false);
+    } else {
+      fetch("https://randomuser.me/api/?results=20")
+        .then((res) => res.json())
+        .then((resp) => {
+          console.log(resp.results);
+          isLoading(false);
           localStorage.setItem("users", JSON.stringify(resp.results));
-          setUsers(JSON.parse(localStorage.getItem("users")));
-        } else {
-          setUsers(JSON.parse(localStorage.getItem("users")));
-        }
-        countFemaleAndMale(resp.results);
-      });
+          setUsers(resp.results);
+          countFemaleAndMale(resp.results);
+        });
+    }
   };
 
   const showView = (event) => {
     event.preventDefault();
-    setUsersView(!showUsers);
-    localStorage.setItem("view", showUsers);
+    if (listUsers === "grid") {
+      setUsersView("list");
+      localStorage.setItem("view", "list");
+    } else {
+      setUsersView("grid");
+      localStorage.setItem("view", "grid");
+    }
   };
 
   // Feamle and male
@@ -80,7 +97,7 @@ function App() {
       <BrowserRouter>
         <Header
           showView={showView}
-          showUsers={showUsers}
+          listUsers={listUsers}
           buttonRefresh={buttonRefresh}
         />
 
@@ -93,7 +110,7 @@ function App() {
                 <Search searchNewUsers={searchNewUsers} />
                 <UsersList
                   users={users}
-                  showUsers={showUsers}
+                  listUsers={listUsers}
                   female={female}
                   male={male}
                 />
