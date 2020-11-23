@@ -5,7 +5,6 @@ import Error from "../Error/Error";
 import styles from "./UsersList.module.css";
 
 function UsersList({ users, listUsers, female, male }) {
-
   const allUsers = users.map((user) => {
     return listUsers === "list" ? (
       <User user={user} key={user.cell} />
@@ -17,15 +16,21 @@ function UsersList({ users, listUsers, female, male }) {
   const usersList = () => {
     return users.length ? <div className="row">{allUsers}</div> : <Error />;
   };
-  
+
   return (
-    <div className={styles.usersContainer}>
-      <div>
-        <p className={styles.male}>
-          Male:{male} Female:{female}
-        </p>
-        {usersList()}
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <p className={styles.male}>
+            Male:{male} Female:{female}
+          </p>
+        </div>
       </div>
+      <div className="row">
+      <div className={styles.usersContainer}>
+        <div>{usersList()}</div>
+      </div>
+    </div>
     </div>
   );
 }
