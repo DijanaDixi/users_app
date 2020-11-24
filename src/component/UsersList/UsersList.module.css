@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Nerko+One&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    /* font-family: 'Nerko One', cursive; */
+}
 
-.male{
+.male {
     float: right;
     color: tomato;
 }
-.usersContainer{
-   min-height: 800px;
+
+.usersContainer {
+    min-height: 800px;
 }

@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // console.log(localStorage.getItem("view") !== null);
+
     if (localStorage.getItem("view")) {
       setUsersView(localStorage.getItem("view"));
     } else {

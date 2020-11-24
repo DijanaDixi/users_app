@@ -17,7 +17,7 @@ function UserGridCard({ user }) {
           <div className="card-body">
           </div>
             <p className="card-text">{haideEmail(user.email)}</p>
-            <p className="card-text">Birth date:{dateFormat(user.date)}</p>
+            <p className="card-text">{`Birth date: ${dateFormat(user.date)}.`}</p>
         </div>
       </div>
     </div>
