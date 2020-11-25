@@ -26,11 +26,10 @@ function UsersList({ users, listUsers, female, male }) {
           </p>
         </div>
       </div>
-      <div className="row">
       <div className={styles.usersContainer}>
-        <div>{usersList()}</div>
+        {usersList()}
       </div>
-    </div>
+
     </div>
   );
 }
