@@ -20,7 +20,7 @@ function Header({ showView, listUsers, buttonRefresh }) {
         </Link>{" "}
         {hideButtons ? (
           <div>
-            {listUsers ? (
+            {listUsers === "list" ? (
               <button onClick={showView} type="button">
                 <FontAwesomeIcon
                   icon={faListUl}
